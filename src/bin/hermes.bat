@@ -62,9 +62,11 @@ copy "%HERMES_HOME%\cfg\hermes-config.xml" "%HERMES_CONFIG%\hermes-config.xml"
 :setOtherVars
 set HERMES_LIBS=%HERMES_HOME%\lib
 set HERMES_BIN=%HERMES_HOME%\bin
-for %%f in ("%HERMES_LIBS%\*.jar") do set CLASSPATH=%CLASSPATH%;%%f
+
+rem for %%f in ("%HERMES_LIBS%\*.jar") do set CLASSPATH=%CLASSPATH%;%%f
+set LOCAL_CLASSPATH=%HERMES_LIBS%\*
 
 cd %HERMES_CONFIG%
 
-start "HermesJMS" "%JAVA_HOME%\bin\javaw" -XX:NewSize=256m -Xmx1024m -Dhermes.home="%HERMES_HOME%" %HERMES_OPTS% -Dlog4j.configuration="file:%HERMES_HOME%\bin\log4j.props" -Dsun.java2d.noddraw=true -Dhermes="%HERMES_CONFIG%\hermes-config.xml" -Dhermes.libs="%HERMES_LIBS%"\ext hermes.browser.HermesBrowser
+start "HermesJMS" "%JAVA_HOME%\bin\javaw" -XX:NewSize=256m -Xmx1024m -Dhermes.home="%HERMES_HOME%" %HERMES_OPTS% -Dlog4j.configuration="file:%HERMES_HOME%\bin\log4j.props" -Dsun.java2d.noddraw=true -Dhermes="%HERMES_CONFIG%\hermes-config.xml" -Dhermes.libs="%HERMES_LIBS%"\ext hermes.browser.HermesBrowser -cp "%LOCAL_CLASSPATH%"
 
