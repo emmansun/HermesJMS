@@ -378,7 +378,7 @@
 			<produces dir="${src.java}/hermes/xml" includes="**/*.java" />
 		</xjc>
 
-		<javac target="1.5" destdir="${classes}" deprecation="on" debug="true">
+		<javac source="1.5" target="1.5" destdir="${classes}" deprecation="on" debug="true">
 			<src path="${src.java}" />
 			<exclude name="hermes/ext/imq/*.java" />
 			<exclude name="hermes/ext/oracle/aq/*.java" />
