@@ -62,7 +62,7 @@ copy "%HERMES_HOME%\cfg\hermes-config.xml" "%HERMES_CONFIG%\hermes-config.xml"
 :setOtherVars
 set HERMES_LIBS=%HERMES_HOME%\lib
 set HERMES_BIN=%HERMES_HOME%\bin
-set CLASSPATH=%HERMES_LIBS%\*;
+for %%f in ("%HERMES_LIBS%\*.jar") do set CLASSPATH=%CLASSPATH%;%%f
 
 cd %HERMES_CONFIG%
 
